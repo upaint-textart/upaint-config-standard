@@ -280,10 +280,9 @@ Config(
             keymaps: ( ),
         ),
         ("p"): (
-                
             handler: ColorPicker,
             base_keymaps: [],
-            on_enter: Some(InitColorPicker(target: ColorOrSlot(Active))),
+            on_enter: Some(InitColorPicker(target: FromKeystrokes)),
             keymaps: ( ),
         ),
         ("v"): (
@@ -455,6 +454,7 @@ Config(
                 }),
                 motions: Some({
                     " ": Stay( ),
+                    "m": Highlighted( ),
                     "s": SelectionMotion(slot: Active),
                     "J": GoToMark(
                         jump: Diagonals,
@@ -575,7 +575,7 @@ Config(
                 color_picker_target_motions: Some({
                     "": (
                         ground: FromKeystrokes,
-                        motion: FromKeystrokes,
+                        motion: Highlighted( ),
                     ),
                 }),
                 color_picker_targets: Some({
